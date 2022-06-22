@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Weather Forecast</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+  <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+</head>
+
+
+<body>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="navbar sticky-top navbar-light bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">Weather Forecast</a>
+                </div>
+              </nav>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-4">
+            <label>Enter  Weather attributes</label>
+            <form action="/predictweather" method = "POST">
+              <label for="temp">Temperature:</label><br>
+              <input type="text" id="temp" name="temp" value=""><br>
+              <label for="humidity">Humidity</label><br>
+              <input type="text" id="humidity" name="humidity" value=""><br>
+              <label for="pressure">Pressure</label><br>
+              <input type="text" id="pressure" name="pressure" value=""><br>
+              <label for="windspeed">Wind Speed</label><br>
+              <input type="text" id="windspeed" name="windspeed" value=""><br>
+              <label for="windspeed">Wind degree</label><br>
+              <input type="text" id="winddegree" name="winddegree" value=""><br>
+              <br>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+          <div class="col-4"></div>
+          {% for key,value in form_data.items() %}
+          <h2> {{key}}</h2>
+          <p> {{value}}</p>
+          {% endfor %}
+          <div class="col-4"></div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div id="cities_no2"></div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-12">
+            <div id="pie"></div>
+          </div>
+          <div class="col-8">
+            <div id="chart-container"></div>
+          </div>
+        </div>
+      </div>
+ 
+
+      <script type="text/javascript" src="{{url_for('static',filename='app.js')}}"></script>
+</body>
+
+
+</html>
