@@ -1,9 +1,10 @@
-# project-4
+# Supervised ML Project-4
+
+Project Description
+
 With the pandemic subsiding slowly, people are excited about travel and outdoor activities. Our project focused analyzing historical hourly weather data to develop a weather prediction tool. 
 This tool predicts the weather based on user inputs and provides recommendations for planning outdoor activities according to the predicted weather.
-
 For this pilot project, our team selected historical weather data between 2015-2018 for one city in Spain (Valencia) to build and test the tool. 
-
 As historical data was readily available, our team chose supervised machine learning to build the prediction tool 
 
 Data Source  
